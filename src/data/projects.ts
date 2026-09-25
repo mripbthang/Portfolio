@@ -42,36 +42,10 @@ export const projects: Project[] = [
     link: "https://github.com/pbthang/Portfolio",
   },
   {
-    title: "Open Realm",
-    description:
-      "Web application for fiction writing built with React, Material-UI, Node.js, and PostgreSQL",
-    imgSrc: "/images/projects/open-realm.webp",
-    link: "https://github.com/pbthang/Open-Realm",
-  },
-  {
-    title: "Restaurant HR Helper",
-    description:
-      "A desktop HR application developed in Java and JavaFX, built with Gradle",
-    imgSrc: "/images/projects/restaurant-hr-helper.webp",
-    link: "https://github.com/AY2122S1-CS2103T-T17-1/tp",
-  },
-  {
     title: "Weapon Detection (CV)",
     description:
       "Classifying whether a person is unarmed, carrying a weapon, or a threat, using deep learning with ~70% accuracy",
     imgSrc: "/images/projects/weapon-detection.webp",
     link: "https://github.com/wilfredbtan/CS4243-Mini-Project",
-  },
-  {
-    title: "Daily Dose of Jokes",
-    description: "A simple Discord bot that tells jokes, built with discord.js",
-    imgSrc: "/images/projects/daily-dose-of-jokes.webp",
-    link: "https://github.com/pbthang/Daily-Dose-of-Jokes",
-  },
-  {
-    title: "Personal Website (old)",
-    description: "My previous personal website, developed with Next.js",
-    imgSrc: "/images/projects/personal-website-old.webp",
-    link: "https://github.com/pbthang/Personal-Webpage",
   },
 ];

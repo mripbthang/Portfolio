@@ -4,7 +4,8 @@ export const education: Timestamp[] = [
   {
     time: "Aug 2020 – Jul 2024",
     title: "National University of Singapore",
-    organization: "Bachelor of Computing in Computer Science, Honours (Distinction)",
+    organization:
+      "Bachelor of Computing in Computer Science, Honours (Distinction)",
     description: [
       "Focus on Software Engineering and Database Systems.",
       "Coursework: Software Engineering Principles and Patterns, Software Testing, Database Systems Implementation, Big Data Systems for Data Science, Cloud Computing, Parallel Computing.",
@@ -44,22 +45,6 @@ export const experience: Timestamp[] = [
     description: [
       "Diagnosed and resolved 30+ technical bugs in a Java-based enterprise banking application, improving system stability and reliability.",
       "Containerised and deployed the application to an OpenShift cluster, integrating microservices, logging, tracing, and monitoring components to strengthen production observability.",
-    ],
-  },
-  {
-    time: "Aug 2022 – Jan 2023",
-    title: "Frontend Developer (Part-time)",
-    organization: "NUS Tropical Marine Science Institute",
-    description: [
-      "Implemented responsive and accessible components for authentication, onboarding, and the contact form of a project application with React, Material UI, JWT, GitLab CI/CD, and Docker.",
-    ],
-  },
-  {
-    time: "Feb 2022 – Jun 2022",
-    title: "Frontend Developer (Part-time)",
-    organization: "Yale-NUS ASEAN Historical Maps Project",
-    description: [
-      "Translated UI/UX wireframes into responsive components and integrated them into an existing Ruby on Rails web application with HTML, CSS, JavaScript, and Ruby.",
     ],
   },
   {
