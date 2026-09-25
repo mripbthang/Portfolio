@@ -5,47 +5,24 @@ import Hero from "../components/Hero.astro";
 import Projects from "../components/Projects.astro";
 import Skills from "../components/Skills.astro";
 import Layout from "../layouts/Layout.astro";
-import contentful from "contentful";
-
-const client = contentful.createClient({
-  space: import.meta.env.CONTENTFUL_SPACE_ID || "dummy",
-  environment: "master", // defaults to 'master' if not set
-  accessToken: import.meta.env.CONTENTFUL_ACCESS_TOKEN || "dummy",
-});
-
-const response = (await client.getEntry(
-  "4YbeNIPoSrVXEhCUaGs9Yp"
-)) as contentful.Entry<any>;
-const profileImage = "https:" + response.fields.profileImage.fields.file.url;
-const resume = "https:" + response.fields.resume.fields.file.url;
-const education = response.fields.education;
-const experience = response.fields.experience;
-const others = response.fields.others;
-const playlistUrl = response.fields.playlistUrl;
-const skills = response.fields.skills;
-const projectImages = response.fields.projectImages.map((obj) => {
-  return "https:" + obj.fields.file.url;
-});
-const projects = response.fields.projects.map((obj, index) => {
-  return { ...obj, imgSrc: projectImages[index] };
-});
-const contacts = response.fields.contacts;
+import { profile, contacts } from "../data/profile";
+import { education, experience, others } from "../data/timeline";
+import { skills } from "../data/skills";
+import { projects } from "../data/projects";
 ---
 
-<Layout contacts={contacts} photo={profileImage}>
-  <Hero resume={resume} />
+<Layout contacts={contacts} photo={profile.image}>
+  <Hero resume={profile.resume} />
   <main class="">
     <About
-      img={profileImage}
+      img={profile.image}
       education={education}
       experience={experience}
       others={others}
-      playlistUrl={playlistUrl}
+      playlistUrl={profile.playlistUrl}
     />
     <Skills skills={skills} />
     <Projects projects={projects} />
     <Contact />
   </main>
 </Layout>
-
-<style></style>

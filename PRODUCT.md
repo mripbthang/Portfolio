@@ -39,9 +39,7 @@ real-estate management application for Singapore's housing authority (C#,
 ASP.NET, SQL Server). Graduated from NUS with a Bachelor of Computing in
 Computer Science, Honours (Distinction), Aug 2020 – Jul 2024.
 
-The site's shipped copy still says "CS student at NUS" and rotates
-"Software Engineer / CS student / Vietnamese" in the hero; this is stale and
-must be updated in future content work.
+Site copy was refreshed to this status in 2026-09.
 
 ## Operating Context
 
@@ -63,13 +61,10 @@ Stack: Astro 2, Tailwind 3, daisyUI 4, Tabler icon webfont, three.js (3D
 laptop in the hero, model + textures in `public/laptop/`), typewriter-effect,
 jQuery. Fonts are loaded from Google Fonts (Poppins, Source Code Pro).
 
-Content today is fetched at request time from a single Contentful entry
-(`4YbeNIPoSrVXEhCUaGs9Yp`): profile image, resume PDF, education, experience,
-others, playlist URL, skills, projects (with images), contacts.
-
-**Confirmed product decision: remove the Contentful dependency and move all
-content into the repository (local data files and assets).** Everything else
-in the current site is to be kept:
+Content is versioned locally in `src/data/` (profile, timeline, skills,
+projects, contacts) with assets in `public/`; the site builds fully static
+(`output: "static"`). The former Contentful dependency was removed in 2026-09.
+Everything else in the site is kept:
 
 - resume link (PDF), Formspree contact form, `pbthang` handle, Singapore
   location, playlist embed, social contacts;
@@ -79,8 +74,7 @@ in the current site is to be kept:
 Section anchors `#About`, `#Skills`, `#Projects`, `#Contact` are used by the
 navbar, footer, and hero scroll cue.
 
-Undecided: whether the site remains server-rendered once Contentful is gone
-(static output becomes viable).
+Undecided: none at present.
 
 ## Brand Commitments
 
@@ -155,9 +149,11 @@ it verbatim and are the content future work must use.
 - Others: Git, GitHub, GitLab, CI/CD, Docker, AWS, Claude Code
 
 **Assets**
-- Project images, profile photo, playlist URL, and the resume PDF currently
-  live in Contentful and must be exported into the repo during the local
-  content move.
+- Profile photo `public/images/profile.webp`; project images in
+  `public/images/projects/`; resume `public/files/PhamBaThang_resume_2026.pdf`.
+  All site content is versioned in `src/data/`.
+- PocketPortfolio has no real screenshot yet; `pocketportfolio.jpg` is the
+  GitHub-generated repo social card and should be replaced with a real one.
 - 3D laptop asset: `public/laptop/source/Laptop.fbx` + textures in
   `public/laptop/textures/`.
 - Favicon: `public/favicon.svg`.

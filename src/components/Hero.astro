@@ -1,9 +1,13 @@
 ---
+import { profile } from "../data/profile";
 interface Props {
   resume: string;
 }
-
 const { resume } = Astro.props as Props;
+const roles = profile.typewriter.map((s) => s.replace(/[,.]$/, ""));
+const heroLabel = `Hello world! I am ${profile.name}, a ${roles
+  .slice(0, -1)
+  .join(", a ")}, and a ${roles.at(-1)}.`;
 ---
 
 <div class="hero max-h-fit bg-[#0b1121] relative">
@@ -30,14 +34,14 @@ const { resume } = Astro.props as Props;
   <div
     class="hero-content w-10/12 text-neutral-content z-3"
     role="region"
-    aria-label="Hello world! I am Thang Pham, a Software Engineer, a CS student, and a Vietnamese."
+    aria-label={heroLabel}
   >
     <div class="max-w-3xl w-full">
       <div class="font-mono">
         <div class="mb-3 text-xl sm:text-3xl lg:text-4xl">Hello world!</div>
-        <div class="mb-3 text-xl sm:text-3xl lg:text-4xl">I am Thang Pham,</div>
+        <div class="mb-3 text-xl sm:text-3xl lg:text-4xl">I am {profile.name},</div>
         <div class="mb-3 text-xl sm:text-3xl lg:text-4xl">
-          a <span id="typewriter"></span>
+          a <span id="typewriter" data-strings={JSON.stringify(profile.typewriter)}></span>
         </div>
       </div>
       <a
@@ -83,8 +87,9 @@ const { resume } = Astro.props as Props;
   import * as THREE from "three";
   import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
 
-  new Typewriter("#typewriter", {
-    strings: ["Software Engineer,", "CS student,", "Vietnamese."],
+  const typewriterEl = document.querySelector("#typewriter") as HTMLElement;
+  new Typewriter(typewriterEl, {
+    strings: JSON.parse(typewriterEl.dataset.strings ?? "[]"),
     autoStart: true,
     loop: true,
     cursor: "_",
