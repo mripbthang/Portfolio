@@ -1,6 +1,7 @@
 ---
 import Hobbies from "./Hobbies.astro";
 import TimelineCard, { Timestamp } from "./TimelineCard.astro";
+import { profile } from "../data/profile";
 
 interface Props {
   img: string;
@@ -22,21 +23,15 @@ const { img, education, experience, others, playlistUrl } =
     >
       <div class="mockup-code break-words flex-1">
         <pre data-prefix="$" class="text-success"><code>whoami</code></pre>
-        <code>Pham Ba Thang</code>
+        <code>{profile.fullName}</code>
         <pre
           data-prefix="$"
           class="text-success"><code>cat info.txt</code></pre>
-        <code>Hi, I am Pham Ba Thang.</code>
-        <code>I study Computer Science at NUS.</code>
+        {profile.bio.info.map((line) => <code>{line}</code>)}
         <pre
           data-prefix="$"
           class="text-success"><code>less interest.txt</code></pre>
-        <code
-          >I'm interested in creating applications that are aesthetically
-          pleasing and solve real problems. <br />I have experience in both
-          frontend and backend development and I really enjoy playing with new
-          technologies.</code
-        >
+        <code>{profile.bio.interest}</code>
         <pre><code>:q</code></pre>
         <pre
           data-prefix="$"
@@ -44,7 +39,7 @@ const { img, education, experience, others, playlistUrl } =
       </div>
       <div class="avatar aspect-auto flex-0 rounded">
         <div class="w-60 max-w-md rounded">
-          <img src={img} alt="profile-img" />
+          <img src={img} alt={`Portrait of ${profile.name}`} />
         </div>
       </div>
     </div>

@@ -4,16 +4,10 @@ import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 import robotsTxt from "astro-robots-txt";
-import netlify from "@astrojs/netlify/functions";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [
-    tailwind(),
-    sitemap({ customPages: ["https://pbthang.netlify.app"] }),
-    robotsTxt(),
-  ],
+  integrations: [tailwind(), sitemap(), robotsTxt()],
   site: "https://pbthang.netlify.app",
-  output: "server",
-  adapter: netlify(),
+  output: "static",
 });
